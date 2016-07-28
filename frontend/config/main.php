@@ -18,6 +18,7 @@ return [
     ],
     
     'components' => [
+
         'mail' => [
             'class'            => 'zyx\phpmailer\Mailer',
             'viewPath'         => '@common/mail',
@@ -31,6 +32,9 @@ return [
                 'username'   => 'mysmtplogin@example.ru',
                 'password'   => 'mYsmTpPassword',
             ],
+        ],
+        'common' => [
+            'class' => 'frontend\components\Common',
         ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
