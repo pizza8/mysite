@@ -25,12 +25,12 @@ return [
             'useFileTransport' => false,
             'config'           => [
                 'mailer'     => 'smtp',
-                'host'       => 'smtp.yandex.ru',
+                'host'       => 'smtp.gmail.com',
                 'port'       => '465',
                 'smtpsecure' => 'ssl',
                 'smtpauth'   => true,
-                'username'   => 'mysmtplogin@example.ru',
-                'password'   => 'mYsmTpPassword',
+                'username'   => 'ruslanerv@gmail.com',
+                'password'   => 'Password',
             ],
         ],
         'common' => [
