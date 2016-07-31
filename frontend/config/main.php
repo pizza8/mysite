@@ -11,6 +11,7 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
+    'defaultRoute' => 'main',
     'modules' => [
         'main' => [
             'class' => 'app\modules\main\Module',
@@ -30,7 +31,9 @@ return [
                 'smtpsecure' => 'ssl',
                 'smtpauth'   => true,
                 'username'   => 'ruslanerv@gmail.com',
-                'password'   => 'Password',
+                'password'   => '56Tan713W',
+                'ishtml' => true,
+                'charset' => 'UTF-8',
             ],
         ],
         'common' => [
