@@ -22,6 +22,8 @@ use yii\bootstrap\Nav;
 <body>
 <?php $this->beginBody() ?>
 
+
+
 <?=$this->render("//common/head")?>
 
 

@@ -22,6 +22,20 @@ use yii\bootstrap\Nav;
 $this->beginBody();
 ?>
 
+<!-- выводит сообщение об успешной регистрации: -->
+<? if(Yii::$app->session->hasFlash('success')):?>
+<?
+    $success = Yii::$app->session->getFlash('success');
+    echo \yii\bootstrap\Alert::widget([
+        'options' => [
+            'class' => 'alert-info'
+        ],
+        'body' => $success
+    ])
+    ?>
+<? endif; ?>
+
+
 <!-- Header Starts -->
 <? echo $this->render("//common/head") ?>
 <!-- #Header Starts -->
