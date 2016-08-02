@@ -35,4 +35,9 @@ class DefaultController extends Controller
         $component->sendMail("test@domain.com","Test","Test text", "test");
 
     }
+
+    public function actionLoginData()
+    {
+        print \Yii::$app->user->identity->username;
+    }
 }

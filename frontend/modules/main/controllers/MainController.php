@@ -57,8 +57,21 @@ class MainController extends \yii\web\Controller
 
     public function actionLogin()
     {
-        $model = 
-        return $this->render('login');
+        $model = new LoginForm();
+
+
+        if ($model->load(\Yii::$app->request->post()) && $model->login())
+        {
+            $this->goBack();
+        }
+        return $this->render('login', ['model' => $model]);
+    }
+
+    public function actionLogout()
+    {
+        \Yii::$app->user->logout();
+
+        return $this->goHome();
     }
 
     public function actionContact ()
