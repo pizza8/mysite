@@ -77,6 +77,16 @@ class Advert extends \yii\db\ActiveRecord
         ];
     }
 
+    public function afterValidate()
+    {
+        $this->fk_agent = Yii::$app->user->identity->id;
+    }
+
+    public function afterSave($insert, $changedAttributes)
+    {
+        Yii::$app->locator->cache->set('id', $this->id);
+    }
+
     /**
      * @inheritdoc
      * @return AdvertQuery the active query used by this AR class.

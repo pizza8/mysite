@@ -10,6 +10,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+
 /**
  * AdvertController implements the CRUD actions for Advert model.
  */
@@ -18,6 +19,7 @@ class AdvertController extends AuthController
     public $layout = "inner";
     
     
+
 
     /**
      * Lists all Advert models.
@@ -56,7 +58,7 @@ class AdvertController extends AuthController
         $model = new Advert();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->idadvert]);
+            return $this->redirect(['step2']);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -81,6 +83,38 @@ class AdvertController extends AuthController
                 'model' => $model,
             ]);
         }
+    }
+
+    public function actionStep2(){
+        $id = Yii::$app->locator->cache->get('id');
+        $model = Advert::findOne($id);
+        $image = [];
+        if($general_image = $model->general_image){
+            $image[] =  '<img src="/uploads/adverts/' . $model->idadvert . '/general/small_' . $general_image . '" width=250>';
+        }
+
+        if(Yii::$app->request->isPost){
+            $this->redirect(Url::to(['advert/']));
+        }
+
+        $path = Yii::getAlias("@frontend/web/uploads/adverts/".$model->idadvert);
+        $images_add = [];
+
+        try {
+            if(is_dir($path)) {
+                $files = \yii\helpers\FileHelper::findFiles($path);
+
+                foreach ($files as $file) {
+                    if (strstr($file, "small_") && !strstr($file, "general")) {
+                        $images_add[] = '<img src="/uploads/adverts/' . $model->idadvert . '/' . basename($file) . '" width=250>';
+                    }
+                }
+            }
+        }
+        catch(\yii\base\Exception $e){}
+
+
+        return $this->render("step2",['model' => $model,'image' => $image, 'images_add' => $images_add]);
     }
 
     /**
