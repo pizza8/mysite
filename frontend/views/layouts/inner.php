@@ -37,7 +37,7 @@ $this->beginBody();
 
 
 <!-- Header Starts -->
-<? echo $this->render("//common/head") ?>
+<? echo $this->render("//common/inner/head") ?>
 <!-- #Header Starts -->
 
 <div class="inside-banner">
@@ -57,7 +57,7 @@ $this->beginBody();
 
 
 
-<? echo $this->render("//common/footer") ?>
+<? echo $this->render("//common/inner/footer") ?>
 
 <?
 $this->endBody();

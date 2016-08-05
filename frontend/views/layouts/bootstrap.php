@@ -24,12 +24,12 @@ use yii\bootstrap\Nav;
 
 
 
-<?=$this->render("//common/head")?>
+<?=$this->render("//common/bootstrap/head")?>
 
 
 <?=$content ?>
 
-<?=$this->render("//common/footer")?>
+<?=$this->render("//common/bootstrap/footer")?>
 
 
 

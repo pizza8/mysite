@@ -13,7 +13,7 @@ use yii\widgets\ActiveForm;
 
 class MainController extends \yii\web\Controller
 {
-    public $layout = "inner";
+    public $layout = 'inner';
 
     public function actions()
     {
@@ -76,6 +76,7 @@ class MainController extends \yii\web\Controller
 
     public function actionContact ()
     {
+
         $model = new ContactForm();
         if($model->load(\Yii::$app->request->post()) && $model->validate())
         {
